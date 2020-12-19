@@ -12,7 +12,7 @@ If you want to launch the example do next steps:
 - `yarn run start` - run server (be sure that port 9000 is not busy on you local machine or change it :))
 - [http://localhost:9000/api/doc/](http://localhost:9000/api/doc/) - open link in browser
 
-### This repo shows you how you can resolve the issue with `Resolver error`
+### This repo shows you how you can resolve the  `Resolver error` in Swagger UI
 
 > **Q:** I'm trying split my OpenAPI Object over multiple YAML files, but I get the erorr: `Resolver error. Could not resolve reference: Tried to resolve a relative URL, without having a basePath.`
 ![Resolver error. Could not resolve reference: Tried to resolve a relative URL, without having a basePath.](https://github.com/chuve/swagger-multi-file-spec/blob/master/screenshots/issue.png)
@@ -20,7 +20,7 @@ If you want to launch the example do next steps:
 > **A:** You have to resolve references in your YAML files by your self first, and provide result to Swagger UI then.
 > You can do it with [json-refs](https://www.npmjs.com/package/json-refs) and [yamljs](https://www.npmjs.com/package/yamljs) libraries.
 
-Here is the code snippet below shows how you can do it:
+Here is the code snippet below shows you how you can do it:
 
 ```javascript
 /**
