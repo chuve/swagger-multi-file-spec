@@ -20,14 +20,20 @@ const multiFileSwagger = (root) => {
     },
   };
 
-  return resolveRefs(root, options).then(
-    function (results) {
-      return results.resolved;
-    },
-    function (err) {
-      console.log(err.stack);
+  return resolveRefs(root, options).then((result) => {
+    if (result && result.refs) {
+      Object.keys(result.refs).map((key) => {
+        if (result.refs[key] && result.refs[key].error) {
+          throw new Error(`Path ${key} has error: ${result.refs[key].error}`)
+        }
+      });
     }
-  );
+
+    return result.resolved;
+  }).catch((error) => {
+    console.log(error);
+    throw new Error(`Something went wrong with parsing the yaml docs`);
+  });
 };
 
 const createServer = async () => {
